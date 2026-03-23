@@ -223,7 +223,12 @@ main {
 }
 
 .panel-grid-objects {
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.panel-grid-objects .intro-card {
+  grid-column: span 4;
 }
 
 .card {
@@ -630,6 +635,13 @@ input[type="text"]:focus {
 .binary-row strong {
   display: inline-block;
   min-width: 48px;
+}
+
+.blueprint-subheading {
+  margin: 18px 0 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--pond);
 }
 
 .binary-bits,

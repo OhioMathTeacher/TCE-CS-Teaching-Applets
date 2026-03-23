@@ -199,15 +199,11 @@
             <p>
               See an object as a bundle of attributes and behaviors.
               Choose an example, create an instance, call methods, and compare the idea to pseudocode and a gentle Java class.
+              Switch among different object examples, edit instance values to see state change over time, and notice how object thinking can feel concrete before full OOP syntax appears in CSE 174.
             </p>
-            <ul class="feature-list">
-              <li>Switch among different object examples.</li>
-              <li>Edit instance values to see state change over time.</li>
-              <li>Notice how object thinking can feel concrete before full OOP syntax appears in CSE 174.</li>
-            </ul>
           </article>
 
-          <article class="card scenario-card">
+          <article class="card object-selector-card">
             <div class="card-heading">
               <h3>Choose an Object</h3>
               <select id="object-select">
@@ -217,13 +213,8 @@
               </select>
             </div>
             <p id="object-description" class="helper-copy"></p>
-          </article>
-
-          <article class="card object-blueprint-card">
-            <div class="card-heading">
-              <h3>Blueprint</h3>
-              <span class="drag-tip">Attributes + methods</span>
-            </div>
+            
+            <h4 class="blueprint-subheading">Blueprint</h4>
             <div id="object-blueprint" class="object-blueprint"></div>
           </article>
 
@@ -239,10 +230,14 @@
 
           <article class="card rationale-card">
             <h3>Think About This</h3>
+            <p class="helper-copy" style="margin-bottom: 12px;">
+              An object is like a template that holds both data (attributes) and actions (methods). Every instance you create from that template starts with the same capabilities but can have different values.
+            </p>
             <ul class="feature-list">
-              <li>Which details belong to the class and which belong to the instance?</li>
-              <li>How are methods just named actions an object can perform?</li>
+              <li>Which details belong to the class definition and which belong to each specific instance?</li>
+              <li>How are methods (actions) just named behaviors an object can perform?</li>
               <li>What stays the same when you move from the object idea to the Java class?</li>
+              <li>Why does changing an attribute value affect only that one instance, not all objects of that type?</li>
             </ul>
           </article>
 
