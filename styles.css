@@ -615,31 +615,30 @@ input[type="text"]:focus {
 .pixel-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 6px;
   margin-top: 14px;
 }
 
 .pixel-row {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 12px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
 }
 
 .pixel-row-cells {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 3px;
+  grid-template-columns: repeat(8, 32px);
+  gap: 4px;
 }
 
 .pixel-cell {
-  aspect-ratio: 1;
+  width: 32px;
+  height: 32px;
   border-radius: 6px;
   border: 1px solid rgba(22, 37, 33, 0.12);
   background: rgba(255, 255, 255, 0.86);
   cursor: pointer;
-  width: 100%;
-  min-width: 0;
 }
 
 .pixel-cell.is-on {
