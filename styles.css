@@ -576,12 +576,36 @@ input[type="text"]:focus {
 
 .pixel-row-output {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   align-items: center;
-  font-size: 0.9rem;
-  padding: 6px 10px;
+  font-size: 0.95rem;
+  padding: 6px 12px;
   border-radius: 12px;
   background: rgba(216, 235, 234, 0.4);
+}
+
+.pixel-output-header {
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--pond);
+  background: transparent;
+  padding: 4px 12px 8px;
+}
+
+.pixel-output-header span {
+  cursor: help;
+}
+
+.pixel-row-header {
+  margin-bottom: 4px;
+}
+
+.pixel-decimal,
+.pixel-hex {
+  font-family: var(--mono);
+  min-width: 60px;
 }
 
 .pixel-row-output strong {
@@ -628,13 +652,13 @@ input[type="text"]:focus {
 
 .pixel-row-cells {
   display: grid;
-  grid-template-columns: repeat(8, 42px);
-  gap: 4px;
+  grid-template-columns: repeat(8, 50px);
+  gap: 5px;
 }
 
 .pixel-cell {
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
   border: 1px solid rgba(22, 37, 33, 0.12);
   background: rgba(255, 255, 255, 0.86);

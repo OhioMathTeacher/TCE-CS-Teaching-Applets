@@ -133,6 +133,19 @@ codeTabs.forEach((tab) => {
 
 function renderGrid() {
   pixelGrid.innerHTML = '';
+  
+  // Add headers on first render
+  const headerRow = document.createElement('div');
+  headerRow.className = 'pixel-row pixel-row-header';
+  headerRow.innerHTML = `
+    <div class="pixel-row-cells"></div>
+    <div class="pixel-row-output pixel-output-header">
+      <span title="Binary number converted to base-10">Decimal</span>
+      <span title="Binary number converted to hexadecimal (base-16)">Hex</span>
+    </div>
+  `;
+  pixelGrid.appendChild(headerRow);
+  
   pixelState.forEach((row, rowIndex) => {
     // Create row container
     const pixelRow = document.createElement('div');
@@ -157,13 +170,13 @@ function renderGrid() {
     
     // Create output for this row
     const bits = row.join('');
-    const hex = parseInt(bits, 2).toString(16).toUpperCase().padStart(2, '0');
+    const decimal = parseInt(bits, 2);
+    const hex = decimal.toString(16).toUpperCase().padStart(2, '0');
     const rowOutput = document.createElement('div');
     rowOutput.className = 'pixel-row-output';
     rowOutput.innerHTML = `
-      <strong>Row ${rowIndex + 1}</strong>
-      <span class="pixel-bits">${bits}</span>
-      <span>0x${hex}</span>
+      <span class="pixel-decimal">${decimal}</span>
+      <span class="pixel-hex">0x${hex}</span>
     `;
     
     // Add cells and output to row container
