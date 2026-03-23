@@ -214,7 +214,7 @@ main {
 }
 
 .panel-grid-binary {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
   align-items: stretch;
 }
 
@@ -244,23 +244,7 @@ main {
 }
 
 .intro-card-binary {
-  grid-column: span 6;
-}
-
-.text-card-binary {
-  grid-column: span 1;
-}
-
-.image-card-binary {
-  grid-column: span 2;
-}
-
-.rows-card-binary {
-  grid-column: span 1;
-}
-
-.code-card-binary {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 .text-card-binary,
