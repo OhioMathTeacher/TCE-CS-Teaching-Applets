@@ -33,7 +33,6 @@ const codeDisplay = document.getElementById('code-display');
 const showDecimal = document.getElementById('show-decimal');
 const codeTabs = document.querySelectorAll('[data-code-view]');
 const pixelGrid = document.getElementById('pixel-grid');
-const pixelOutput = document.getElementById('pixel-output');
 const clearGridButton = document.getElementById('clear-grid');
 const loadPatternButton = document.getElementById('load-pattern');
 const invertGridButton = document.getElementById('invert-grid');
@@ -135,6 +134,15 @@ codeTabs.forEach((tab) => {
 function renderGrid() {
   pixelGrid.innerHTML = '';
   pixelState.forEach((row, rowIndex) => {
+    // Create row container
+    const pixelRow = document.createElement('div');
+    pixelRow.className = 'pixel-row';
+    
+    // Create cells container
+    const cellsContainer = document.createElement('div');
+    cellsContainer.className = 'pixel-row-cells';
+    
+    // Create cells for this row
     row.forEach((value, colIndex) => {
       const cell = document.createElement('button');
       cell.type = 'button';
@@ -143,46 +151,49 @@ function renderGrid() {
       cell.addEventListener('click', () => {
         pixelState[rowIndex][colIndex] = pixelState[rowIndex][colIndex] ? 0 : 1;
         renderGrid();
-        renderPixelOutput();
       });
-      pixelGrid.appendChild(cell);
+      cellsContainer.appendChild(cell);
     });
-  });
-}
-
-function renderPixelOutput() {
-  pixelOutput.innerHTML = '';
-  pixelState.forEach((row, index) => {
+    
+    // Create output for this row
     const bits = row.join('');
     const hex = parseInt(bits, 2).toString(16).toUpperCase().padStart(2, '0');
     const rowOutput = document.createElement('div');
     rowOutput.className = 'pixel-row-output';
     rowOutput.innerHTML = `
-      <strong>Row ${index + 1}</strong>
+      <strong>Row ${rowIndex + 1}</strong>
       <span class="pixel-bits">${bits}</span>
       <span>0x${hex}</span>
     `;
-    pixelOutput.appendChild(rowOutput);
+    
+    // Add cells and output to row container
+    pixelRow.appendChild(cellsContainer);
+    pixelRow.appendChild(rowOutput);
+    pixelGrid.appendChild(pixelRow);
   });
+  
+  renderBinaryCode(textInput.value || ' ');
+}
+
+function renderPixelOutput() {
+  // This function is now integrated into renderGrid()
+  // Keeping it here for compatibility with existing calls
   renderBinaryCode(textInput.value || ' ');
 }
 
 clearGridButton.addEventListener('click', () => {
   pixelState = Array.from({ length: gridSize }, () => Array(gridSize).fill(0));
   renderGrid();
-  renderPixelOutput();
 });
 
 loadPatternButton.addEventListener('click', () => {
   pixelState = samplePattern.map((row) => [...row]);
   renderGrid();
-  renderPixelOutput();
 });
 
 invertGridButton.addEventListener('click', () => {
   pixelState = pixelState.map((row) => row.map((value) => (value ? 0 : 1)));
   renderGrid();
-  renderPixelOutput();
 });
 
 textInput.addEventListener('input', renderBinaryRows);
@@ -1033,7 +1044,6 @@ objectCodeTabs.forEach((tab) => {
 
 renderBinaryRows();
 renderGrid();
-renderPixelOutput();
 loadScenario(currentScenarioKey);
 renderChatHistory();
 renderObjectModel();
