@@ -29,6 +29,7 @@ tabButtons.forEach((button) => {
 
 const textInput = document.getElementById('text-input');
 const binaryOutput = document.getElementById('binary-output');
+const binaryHorizontalOutput = document.getElementById('binary-horizontal-output');
 const codeDisplay = document.getElementById('code-display');
 const showDecimal = document.getElementById('show-decimal');
 const codeTabs = document.querySelectorAll('[data-code-view]');
@@ -58,6 +59,12 @@ function toBinary(value) {
 
 function renderBinaryRows() {
   const content = textInput.value || ' ';
+  
+  // Update horizontal binary representation
+  const binaryString = [...content].map(char => toBinary(char.charCodeAt(0))).join(' ');
+  binaryHorizontalOutput.value = binaryString;
+  
+  // Clear and rebuild character breakdown
   binaryOutput.innerHTML = '';
 
   [...content].forEach((character) => {

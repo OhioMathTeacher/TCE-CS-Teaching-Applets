@@ -559,6 +559,20 @@ input[type="text"]:focus {
   border-color: rgba(210, 105, 60, 0.4);
 }
 
+.binary-horizontal-display {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: rgba(216, 235, 234, 0.3);
+  cursor: default;
+  resize: none;
+}
+
+.binary-horizontal-display:focus {
+  outline: none;
+  border-color: rgba(22, 37, 33, 0.15);
+}
+
 .binary-output,
 .pixel-output,
 .feedback-panel {
