@@ -646,8 +646,10 @@ async function loadApiKeyStatus() {
 
   if (apiKeyConfigured) {
     updateChatStatus('ToddGPT is connected.');
+    openApiKeyButton.textContent = 'Change API Key';
   } else {
     updateChatStatus('Set an API key to enable ToddGPT.');
+    openApiKeyButton.textContent = 'Set API Key';
   }
 
   setChatPending(false);
@@ -669,6 +671,7 @@ async function saveApiKey() {
     apiKeyInput.value = '';
     apiKeyMessage.textContent = '';
     updateChatStatus('ToddGPT is connected.');
+    openApiKeyButton.textContent = 'Change API Key';
     toggleApiKeyModal(false);
     setChatPending(false);
   } catch (error) {
