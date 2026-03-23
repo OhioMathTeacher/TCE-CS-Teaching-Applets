@@ -121,76 +121,65 @@
 
       <section id="binary-lab" class="tab-panel">
         <div class="panel-grid panel-grid-binary">
-          <article class="card intro-card">
-            <div class="week-pill">Week 6: Binary and Digital Representation</div>
-            <h2>Binary Media Lab</h2>
-            <p>
-              Experiment with how computers represent text and images in binary.
-              Start with something concrete, then connect it to the logic underneath.
-            </p>
-            <ul class="feature-list">
-              <li>Type a message and watch each character turn into 8-bit binary.</li>
-              <li>Click pixels in an 8x8 image and watch the rows turn into binary and hexadecimal.</li>
-              <li>Compare the same idea in pseudocode and readable Java.</li>
-            </ul>
-          </article>
+          <div class="binary-stack">
+            <article class="card intro-card-binary">
+              <div class="week-pill">Week 6: Binary and Digital Representation</div>
+              <h2>Binary Media Lab</h2>
+              <p>
+                Experiment with how computers represent text and images in binary.
+                Start with something concrete, then connect it to the logic underneath.
+              </p>
+              <ul class="feature-list">
+                <li>Type a message and watch each character turn into 8-bit binary.</li>
+                <li>Click pixels in an 8x8 image and watch the rows turn into binary and hexadecimal.</li>
+                <li>Compare the same idea in pseudocode and readable Java.</li>
+              </ul>
+            </article>
 
-          <article class="card text-card">
-            <div class="card-heading">
-              <h3>Text to Binary</h3>
-              <label class="inline-toggle">
-                <input id="show-decimal" type="checkbox" checked>
-                <span>Show decimal values</span>
-              </label>
-            </div>
-            <label for="text-input" class="subtle-label">Type short text</label>
-            <textarea id="text-input" rows="3" maxlength="24">CS</textarea>
-            <div id="binary-output" class="binary-output"></div>
-          </article>
-
-          <article class="card code-card">
-            <div class="card-heading">
-              <h3>Translate the Logic</h3>
-              <div class="mini-tabs" role="tablist" aria-label="Code views">
-                <button class="mini-tab is-active" data-code-view="pseudocode">Pseudocode</button>
-                <button class="mini-tab" data-code-view="java">Java</button>
+            <article class="card text-card-binary">
+              <div class="card-heading">
+                <h3>Text to Binary</h3>
+                <label class="inline-toggle">
+                  <input id="show-decimal" type="checkbox" checked>
+                  <span>Show decimal values</span>
+                </label>
               </div>
-            </div>
-            <pre id="code-display" class="code-display"></pre>
-            <p class="code-note">
-              The Java view is intentionally readable, not advanced. The goal is to help you get comfortable
-              seeing how familiar logic looks in Java.
-            </p>
-          </article>
+              <label for="text-input" class="subtle-label">Type short text</label>
+              <textarea id="text-input" rows="3" maxlength="24">CS</textarea>
+              <div id="binary-output" class="binary-output"></div>
+            </article>
 
-          <article class="card image-card">
-            <div class="card-heading">
-              <h3>Pixel Grid</h3>
-              <div class="control-row">
-                <button id="clear-grid" class="soft-button" type="button">Clear</button>
-                <button id="load-pattern" class="soft-button" type="button">Load Sample</button>
-                <button id="invert-grid" class="soft-button" type="button">Invert</button>
+            <article class="card image-card-binary">
+              <div class="card-heading">
+                <h3>Pixel Grid</h3>
+                <div class="control-row">
+                  <button id="clear-grid" class="soft-button" type="button">Clear</button>
+                  <button id="load-pattern" class="soft-button" type="button">Load Sample</button>
+                  <button id="invert-grid" class="soft-button" type="button">Invert</button>
+                </div>
               </div>
-            </div>
-            <p class="helper-copy">
-              Click squares to build a tiny image. Each row becomes a binary number and a hexadecimal value.
-            </p>
-            <div id="pixel-grid" class="pixel-grid" aria-label="8 by 8 binary image grid"></div>
-          </article>
+              <p class="helper-copy">
+                Click squares to build a tiny image. Each row becomes a binary number and a hexadecimal value.
+              </p>
+              <div id="pixel-grid" class="pixel-grid" aria-label="8 by 8 binary image grid"></div>
+            </article>
 
-          <article class="card rows-card">
-            <h3>Image Rows</h3>
-            <div id="pixel-output" class="pixel-output"></div>
-          </article>
+            <article class="card rows-card-binary">
+              <h3>Image Rows</h3>
+              <div id="pixel-output" class="pixel-output"></div>
+            </article>
 
-          <article class="card teaching-card">
-            <h3>Try These Prompts</h3>
-            <ul class="feature-list">
-              <li>Why can two different media types both reduce to binary?</li>
-              <li>What stayed the same when you switched from pseudocode to Java?</li>
-              <li>Create a tiny image, then write a plain-language algorithm for reproducing it.</li>
-            </ul>
-          </article>
+            <article class="card code-card code-card-binary">
+              <div class="card-heading">
+                <h3>Translate the Logic</h3>
+                <div class="mini-tabs" role="tablist" aria-label="Code views">
+                  <button class="mini-tab is-active" data-code-view="pseudocode">Pseudocode</button>
+                  <button class="mini-tab" data-code-view="java">Java</button>
+                </div>
+              </div>
+              <pre id="code-display" class="code-display"></pre>
+            </article>
+          </div>
         </div>
       </section>
 
