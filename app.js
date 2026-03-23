@@ -67,8 +67,8 @@ function renderBinaryRows() {
     row.className = 'binary-row';
     row.innerHTML = `
       <strong>${character === ' ' ? '[space]' : character}</strong>
-      <span class="binary-bits">${bits}</span>
-      ${showDecimal.checked ? `<span>decimal ${decimal}</span>` : ''}
+      <span class="binary-bits">${bits} (binary)</span>
+      ${showDecimal.checked ? `<span>= ${decimal} (decimal)</span>` : ''}
     `;
     binaryOutput.appendChild(row);
   });
