@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge Course Applet Suite</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell decision-chat-active" id="page-shell">
+    <header class="hero">
+      <p class="eyebrow">TCE/CSE 3XX Proof of Concept</p>
+      <h1>Agentically Built Teaching Applets</h1>
+      <p class="hero-copy">
+        Three sample applets for a bridge-to-CSE-174 course. Each one is tied to a different part of the
+        semester so you can point to repeated, low-stakes encounters with logic, pseudocode, and readable Java.
+      </p>
+    </header>
+
+    <aside class="card chat-card" id="decision-chat">
+      <div class="card-heading chat-heading">
+        <div>
+          <h3>ToddGPT</h3>
+        </div>
+        <button id="open-api-key" class="chat-config-button" type="button">Set API Key</button>
+      </div>
+      <div id="chat-history" class="chat-history"></div>
+      <div class="chat-footer">
+        <p id="chat-status" class="chat-status" aria-live="polite"></p>
+        <button id="download-chat" class="chat-download-button" type="button">Download Chat</button>
+        <div class="chat-input-row">
+          <textarea id="question-input" rows="3" placeholder="Ask ToddGPT..."></textarea>
+          <button id="send-question" class="chat-send-button" type="button">Send</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="api-key-modal is-hidden" id="api-key-modal" role="dialog" aria-modal="true" aria-labelledby="api-key-title">
+      <div class="api-key-card">
+        <h2 id="api-key-title">Connect ToddGPT</h2>
+        <p class="helper-copy">
+          Enter your OpenRouter API key. It will be stored only in this browser session, not in the page source.
+        </p>
+        <label class="subtle-label" for="api-key-input">OpenRouter API Key</label>
+        <input id="api-key-input" type="password" autocomplete="off" placeholder="sk-or-v1-...">
+        <p id="api-key-message" class="api-key-message" aria-live="polite"></p>
+        <div class="control-row compact-row api-key-actions">
+          <button id="save-api-key" class="soft-button" type="button">Save Key</button>
+          <button id="close-api-key" class="soft-button" type="button">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="tab-bar" aria-label="Applet sections">
+      <button class="tab-button is-active" data-tab="decision-studio" data-tooltip="Weeks 3-5: Put the steps in order, fill in missing moves, and unlock the translation layer once your algorithm is correct.">Decision Studio</button>
+      <button class="tab-button" data-tab="binary-lab" data-tooltip="Week 6: Turn text and images into binary, then compare digital representation in pseudocode and readable Java.">Binary Media Lab</button>
+      <button class="tab-button" data-tab="objects-explorer" data-tooltip="Week 11: Build an object from attributes and behaviors, then inspect how the same structure appears in a simple class.">Objects Explorer</button>
+    </nav>
+
+    <main>
+      <section id="decision-studio" class="tab-panel is-active">
+        <div class="panel-grid panel-grid-algorithm">
+          <div class="decision-stack">
+            <article class="card scenario-card">
+              <div class="card-heading">
+                <h3>Choose a Scenario</h3>
+                <select id="scenario-select">
+                  <option value="sandwich">Make a Peanut Butter Sandwich</option>
+                  <option value="projector">Launch a Classroom Projector</option>
+                  <option value="rainy-day">Start a Rainy-Day Arrival Routine</option>
+                </select>
+              </div>
+              <p id="scenario-description" class="helper-copy"></p>
+            </article>
+
+            <article class="card builder-card decision-card">
+              <div class="card-heading">
+                <h3>Arrange the Popsicle Sticks</h3>
+                <span class="drag-tip">Use arrows to move each stick</span>
+              </div>
+              <div id="algorithm-list" class="algorithm-list"></div>
+              <div class="control-row compact-row algorithm-actions">
+                <button id="check-order" class="soft-button" type="button">Check Order</button>
+                <button id="shuffle-cards" class="soft-button" type="button">Shuffle</button>
+                <button id="reset-scenario" class="soft-button" type="button">Reset</button>
+              </div>
+              <div id="algorithm-feedback" class="feedback-panel"></div>
+            </article>
+
+            <article class="card algorithm-placeholder-card" id="algorithm-placeholder-card">
+              <div class="card-heading">
+                <h3>Before You Translate</h3>
+              </div>
+              <p class="helper-copy">
+                Check your sequence first. After a correct order, this box becomes the pseudocode and Java view.
+              </p>
+              <div class="algorithm-placeholder-panel">
+                <p class="placeholder-kicker">Check these ideas before you click:</p>
+                <ul class="feature-list">
+                  <li>What must happen first no matter what?</li>
+                  <li>Which step depends on another step being finished?</li>
+                  <li>Did you fill in every missing stick with a clear action?</li>
+                  <li>Where does a decision or check belong, if there is one?</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card code-card code-card-algorithm is-hidden" id="algorithm-code-card">
+              <div class="card-heading">
+                <h3>From Procedure to Code</h3>
+                <div class="mini-tabs" role="tablist" aria-label="Algorithm code views">
+                  <button class="mini-tab is-active" data-algo-code-view="pseudocode">Pseudocode</button>
+                  <button class="mini-tab" data-algo-code-view="java" id="algorithm-java-tab">Java</button>
+                </div>
+              </div>
+              <pre id="algorithm-code-display" class="code-display"></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="binary-lab" class="tab-panel">
+        <div class="panel-grid panel-grid-binary">
+          <article class="card intro-card">
+            <div class="week-pill">Week 6: Binary and Digital Representation</div>
+            <h2>Binary Media Lab</h2>
+            <p>
+              Experiment with how computers represent text and images in binary.
+              Start with something concrete, then connect it to the logic underneath.
+            </p>
+            <ul class="feature-list">
+              <li>Type a message and watch each character turn into 8-bit binary.</li>
+              <li>Click pixels in an 8x8 image and watch the rows turn into binary and hexadecimal.</li>
+              <li>Compare the same idea in pseudocode and readable Java.</li>
+            </ul>
+          </article>
+
+          <article class="card text-card">
+            <div class="card-heading">
+              <h3>Text to Binary</h3>
+              <label class="inline-toggle">
+                <input id="show-decimal" type="checkbox" checked>
+                <span>Show decimal values</span>
+              </label>
+            </div>
+            <label for="text-input" class="subtle-label">Type short text</label>
+            <textarea id="text-input" rows="3" maxlength="24">CS</textarea>
+            <div id="binary-output" class="binary-output"></div>
+          </article>
+
+          <article class="card code-card">
+            <div class="card-heading">
+              <h3>Translate the Logic</h3>
+              <div class="mini-tabs" role="tablist" aria-label="Code views">
+                <button class="mini-tab is-active" data-code-view="pseudocode">Pseudocode</button>
+                <button class="mini-tab" data-code-view="java">Java</button>
+              </div>
+            </div>
+            <pre id="code-display" class="code-display"></pre>
+            <p class="code-note">
+              The Java view is intentionally readable, not advanced. The goal is to help you get comfortable
+              seeing how familiar logic looks in Java.
+            </p>
+          </article>
+
+          <article class="card image-card">
+            <div class="card-heading">
+              <h3>Pixel Grid</h3>
+              <div class="control-row">
+                <button id="clear-grid" class="soft-button" type="button">Clear</button>
+                <button id="load-pattern" class="soft-button" type="button">Load Sample</button>
+                <button id="invert-grid" class="soft-button" type="button">Invert</button>
+              </div>
+            </div>
+            <p class="helper-copy">
+              Click squares to build a tiny image. Each row becomes a binary number and a hexadecimal value.
+            </p>
+            <div id="pixel-grid" class="pixel-grid" aria-label="8 by 8 binary image grid"></div>
+          </article>
+
+          <article class="card rows-card">
+            <h3>Image Rows</h3>
+            <div id="pixel-output" class="pixel-output"></div>
+          </article>
+
+          <article class="card teaching-card">
+            <h3>Try These Prompts</h3>
+            <ul class="feature-list">
+              <li>Why can two different media types both reduce to binary?</li>
+              <li>What stayed the same when you switched from pseudocode to Java?</li>
+              <li>Create a tiny image, then write a plain-language algorithm for reproducing it.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="objects-explorer" class="tab-panel">
+        <div class="panel-grid panel-grid-objects">
+          <article class="card intro-card">
+            <div class="week-pill">Week 11: Objects</div>
+            <h2>Objects Explorer</h2>
+            <p>
+              See an object as a bundle of attributes and behaviors.
+              Choose an example, create an instance, call methods, and compare the idea to pseudocode and a gentle Java class.
+            </p>
+            <ul class="feature-list">
+              <li>Switch among different object examples.</li>
+              <li>Edit instance values to see state change over time.</li>
+              <li>Notice how object thinking can feel concrete before full OOP syntax appears in CSE 174.</li>
+            </ul>
+          </article>
+
+          <article class="card scenario-card">
+            <div class="card-heading">
+              <h3>Choose an Object</h3>
+              <select id="object-select">
+                <option value="robot">Classroom Robot</option>
+                <option value="book">Library Book</option>
+                <option value="device">Student Device</option>
+              </select>
+            </div>
+            <p id="object-description" class="helper-copy"></p>
+          </article>
+
+          <article class="card object-blueprint-card">
+            <div class="card-heading">
+              <h3>Blueprint</h3>
+              <span class="drag-tip">Attributes + methods</span>
+            </div>
+            <div id="object-blueprint" class="object-blueprint"></div>
+          </article>
+
+          <article class="card object-instance-card">
+            <h3>Instance Playground</h3>
+            <p class="helper-copy">
+              Change the starting state, then call methods to see what the object does.
+            </p>
+            <div id="object-form" class="object-form"></div>
+            <div class="control-row compact-row" id="object-actions"></div>
+            <div id="object-state" class="feedback-panel"></div>
+          </article>
+
+          <article class="card rationale-card">
+            <h3>Think About This</h3>
+            <ul class="feature-list">
+              <li>Which details belong to the class and which belong to the instance?</li>
+              <li>How are methods just named actions an object can perform?</li>
+              <li>What stays the same when you move from the object idea to the Java class?</li>
+            </ul>
+          </article>
+
+          <article class="card code-card">
+            <div class="card-heading">
+              <h3>See the Class</h3>
+              <div class="mini-tabs" role="tablist" aria-label="Object code views">
+                <button class="mini-tab is-active" data-object-code-view="pseudocode">Pseudocode</button>
+                <button class="mini-tab" data-object-code-view="java">Java</button>
+              </div>
+            </div>
+            <pre id="object-code-display" class="code-display"></pre>
+            <p class="code-note">
+              You do not need to write this from scratch. The goal is to recognize that the object you just
+              manipulated has a readable class structure behind it.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
