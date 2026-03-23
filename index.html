@@ -73,48 +73,50 @@
               <p id="scenario-description" class="helper-copy"></p>
             </article>
 
-            <article class="card builder-card decision-card">
-              <div class="card-heading">
-                <h3>Arrange the Popsicle Sticks</h3>
-                <span class="drag-tip">Use arrows to move each stick</span>
-              </div>
-              <div id="algorithm-list" class="algorithm-list"></div>
-              <div class="control-row compact-row algorithm-actions">
-                <button id="check-order" class="soft-button" type="button">Check Order</button>
-                <button id="shuffle-cards" class="soft-button" type="button">Shuffle</button>
-                <button id="reset-scenario" class="soft-button" type="button">Reset</button>
-              </div>
-              <div id="algorithm-feedback" class="feedback-panel"></div>
-            </article>
-
-            <article class="card algorithm-placeholder-card" id="algorithm-placeholder-card">
-              <div class="card-heading">
-                <h3>Before You Translate</h3>
-              </div>
-              <p class="helper-copy">
-                Check your sequence first. After a correct order, this box becomes the pseudocode and Java view.
-              </p>
-              <div class="algorithm-placeholder-panel">
-                <p class="placeholder-kicker">Check these ideas before you click:</p>
-                <ul class="feature-list">
-                  <li>What must happen first no matter what?</li>
-                  <li>Which step depends on another step being finished?</li>
-                  <li>Did you fill in every missing stick with a clear action?</li>
-                  <li>Where does a decision or check belong, if there is one?</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card code-card code-card-algorithm is-hidden" id="algorithm-code-card">
-              <div class="card-heading">
-                <h3>From Procedure to Code</h3>
-                <div class="mini-tabs" role="tablist" aria-label="Algorithm code views">
-                  <button class="mini-tab is-active" data-algo-code-view="pseudocode">Pseudocode</button>
-                  <button class="mini-tab" data-algo-code-view="java" id="algorithm-java-tab">Java</button>
+            <div class="decision-lower-grid">
+              <article class="card builder-card decision-card">
+                <div class="card-heading">
+                  <h3>Arrange the Popsicle Sticks</h3>
+                  <span class="drag-tip">Use arrows to move each stick</span>
                 </div>
-              </div>
-              <pre id="algorithm-code-display" class="code-display"></pre>
-            </article>
+                <div id="algorithm-list" class="algorithm-list"></div>
+                <div class="control-row compact-row algorithm-actions">
+                  <button id="check-order" class="soft-button" type="button">Check Order</button>
+                  <button id="shuffle-cards" class="soft-button" type="button">Shuffle</button>
+                  <button id="reset-scenario" class="soft-button" type="button">Reset</button>
+                </div>
+                <div id="algorithm-feedback" class="feedback-panel"></div>
+              </article>
+
+              <article class="card algorithm-placeholder-card" id="algorithm-placeholder-card">
+                <div class="card-heading">
+                  <h3>Before You Translate</h3>
+                </div>
+                <p class="helper-copy">
+                  Check your sequence first. After a correct order, this box becomes the pseudocode and Java view.
+                </p>
+                <div class="algorithm-placeholder-panel">
+                  <p class="placeholder-kicker">Check these ideas before you click:</p>
+                  <ul class="feature-list">
+                    <li>What must happen first no matter what?</li>
+                    <li>Which step depends on another step being finished?</li>
+                    <li>Did you fill in every missing stick with a clear action?</li>
+                    <li>Where does a decision or check belong, if there is one?</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card code-card code-card-algorithm is-hidden" id="algorithm-code-card">
+                <div class="card-heading">
+                  <h3>From Procedure to Code</h3>
+                  <div class="mini-tabs" role="tablist" aria-label="Algorithm code views">
+                    <button class="mini-tab is-active" data-algo-code-view="pseudocode">Pseudocode</button>
+                    <button class="mini-tab" data-algo-code-view="java" id="algorithm-java-tab">Java</button>
+                  </div>
+                </div>
+                <pre id="algorithm-code-display" class="code-display"></pre>
+              </article>
+            </div>
           </div>
         </div>
       </section>

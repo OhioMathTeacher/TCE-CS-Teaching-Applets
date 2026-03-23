@@ -267,12 +267,29 @@ main {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.decision-lower-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
 .decision-stack > .card {
   display: flex;
   flex-direction: column;
 }
 
+.decision-lower-grid > .card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .decision-stack > .card.is-hidden {
+  display: none;
+}
+
+.decision-lower-grid > .card.is-hidden {
   display: none;
 }
 
@@ -281,14 +298,6 @@ main {
 .panel-grid-algorithm .code-card,
 .panel-grid-algorithm .algorithm-placeholder-card {
   grid-column: span 1;
-}
-
-.code-card-algorithm {
-  min-width: 0;
-}
-
-.algorithm-placeholder-card {
-  min-width: 0;
 }
 
 .algorithm-placeholder-panel {
@@ -762,6 +771,10 @@ input[type="text"]:focus {
 @media (max-width: 980px) {
   .page-shell,
   .page-shell:not(.decision-chat-active) {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-lower-grid {
     grid-template-columns: 1fr;
   }
 
