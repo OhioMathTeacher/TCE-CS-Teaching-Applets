@@ -274,6 +274,12 @@ main {
   align-items: start;
 }
 
+.decision-lower-grid > .builder-card,
+.decision-lower-grid > .algorithm-placeholder-card,
+.decision-lower-grid > .code-card {
+  grid-column: span 1;
+}
+
 .decision-stack > .card {
   display: flex;
   flex-direction: column;
