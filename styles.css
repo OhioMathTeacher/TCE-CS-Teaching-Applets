@@ -214,7 +214,7 @@ main {
 }
 
 .panel-grid-binary {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: stretch;
 }
 
@@ -243,14 +243,30 @@ main {
   grid-column: span 2;
 }
 
-.intro-card-binary,
+.intro-card-binary {
+  grid-column: span 6;
+}
+
+.text-card-binary {
+  grid-column: span 1;
+}
+
+.image-card-binary {
+  grid-column: span 2;
+}
+
+.rows-card-binary {
+  grid-column: span 1;
+}
+
 .code-card-binary {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 .text-card-binary,
 .image-card-binary,
-.rows-card-binary {
+.rows-card-binary,
+.code-card-binary {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -589,7 +605,7 @@ input[type="text"]:focus {
 }
 
 .code-display {
-  min-height: 280px;
+  min-height: 200px;
   overflow: auto;
   white-space: pre-wrap;
   margin: 0;
@@ -603,13 +619,13 @@ input[type="text"]:focus {
 .pixel-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 6px;
+  gap: 4px;
   margin-top: 14px;
 }
 
 .pixel-cell {
   aspect-ratio: 1;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid rgba(22, 37, 33, 0.12);
   background: rgba(255, 255, 255, 0.86);
   cursor: pointer;
