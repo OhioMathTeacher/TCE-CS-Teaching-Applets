@@ -214,7 +214,8 @@ main {
 }
 
 .panel-grid-binary {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .panel-grid-algorithm {
@@ -242,22 +243,16 @@ main {
   grid-column: span 2;
 }
 
-.binary-stack {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 18px;
-}
-
-.binary-stack > .card {
-  display: flex;
-  flex-direction: column;
-}
-
 .intro-card-binary,
+.code-card-binary {
+  grid-column: span 3;
+}
+
 .text-card-binary,
 .image-card-binary,
-.rows-card-binary,
-.code-card-binary {
+.rows-card-binary {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
