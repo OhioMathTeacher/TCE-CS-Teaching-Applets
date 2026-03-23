@@ -103,6 +103,19 @@
                     <li>Did you fill in every missing stick with a clear action?</li>
                     <li>Where does a decision or check belong, if there is one?</li>
                   </ul>
+                  
+                  <p class="placeholder-kicker" style="margin-top: 20px;">Why does sequence matter in real code?</p>
+                  <ul class="feature-list">
+                    <li><strong>Compile Errors:</strong> Trying to use a variable before you declare it crashes the compiler. Order isn't optional.</li>
+                    <li><strong>Runtime Bugs:</strong> Opening a file before checking if it exists? Your program fails when users need it most.</li>
+                    <li><strong>User Experience:</strong> Showing a success message before the save completes confuses users and breaks trust.</li>
+                    <li><strong>Logic Errors:</strong> Calculating a total before adding all the items gives wrong answers that are hard to trace.</li>
+                  </ul>
+                  
+                  <p class="helper-copy" style="margin-top: 16px;">
+                    <strong>Bottom line:</strong> The computer follows your instructions exactly, in the order you give them. 
+                    If the sequence is wrong, the code breaks—even if each individual step is correct.
+                  </p>
                 </div>
               </article>
 
