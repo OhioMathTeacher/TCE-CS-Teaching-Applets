@@ -2,6 +2,8 @@
 
 This repository hosts the public static demo site for the bridge-course applets.
 
+## 🚀 [Launch the Applets](https://OhioMathTeacher.github.io/TCE-CS-Teaching-Applets/)
+
 ## Included Applets
 
 1. `Binary Media Lab`
